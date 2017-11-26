@@ -6,7 +6,7 @@ https://docs.google.com/document/d/1pgc1EiJFOAxaEwfFI0PyUkbUSPAckYKgIZ4N407oj94/
 
 ### Implementation details
 
-To solve this challenge, I built all snakes possibilities with 7 adjacent positions and iterate over the matrix to calculate sum of integers with parallelism, stores the reference of snake in a thread safe dictionary, when a snake with same size is found, then verify in dictionary snakes with same sum if these snakes don't share cells print the match. 
+To solve this challenge, I built all snakes possibilities with 7 adjacent positions and iterate over the matrix to calculate sum of integers with parallelism, stores the reference of snake in a thread safe dictionary, when a snake with same size is found, then verify in dictionary snakes with same sum, if one of these snakes don't share cells print the position of two snakes and sum. 
 If don't find any match, then print FAIL.
 
 
