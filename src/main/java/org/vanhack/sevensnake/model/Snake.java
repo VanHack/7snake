@@ -28,7 +28,7 @@ public class Snake {
 	}
 	
 	public Snake cloneAt(Node node){
-		Set<Node> newNodes = nodes.parallelStream().map(node::add).collect(Collectors.toSet());
+		Set<Node> newNodes = Collections.synchronizedSet(nodes.parallelStream().map(node::add).collect(Collectors.toSet()));
 		return new Snake(graph, newNodes);
 	}
 	

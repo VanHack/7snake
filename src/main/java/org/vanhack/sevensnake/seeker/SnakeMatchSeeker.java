@@ -47,11 +47,11 @@ public class SnakeMatchSeeker {
 			Snake generatedSnake = new SnakeReference(graph, position, reference).getSnake();
 			Set<SnakeReference> otherSnakesWithSameWeight = generatedSnakes.get(generatedSnake.getWeight());
 			if(otherSnakesWithSameWeight == null){
-				otherSnakesWithSameWeight = new HashSet<>();
+				otherSnakesWithSameWeight = Collections.synchronizedSet(new HashSet<>());
 				generatedSnakes.put(generatedSnake.getWeight(), otherSnakesWithSameWeight);
 			} else {
 				Optional<SnakeReference> matchingSnake = 
-				otherSnakesWithSameWeight.parallelStream().filter(snakeReference -> Collections.disjoint(snakeReference.getNodes(), generatedSnake.getNodes())).findAny();
+				otherSnakesWithSameWeight.stream().filter(snakeReference -> Collections.disjoint(snakeReference.getNodes(), generatedSnake.getNodes())).findAny();
 				if(matchingSnake.isPresent()){
 					return new SnakeMatch(generatedSnake, matchingSnake.get().getSnake());
 				} 
