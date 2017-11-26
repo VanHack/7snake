@@ -12,6 +12,7 @@ public class Application {
 	public static void main(String[] args) {
 		if(args.length != 1){
 			System.err.println("ERROR - expected only one argument with csv path");
+			System.exit(-1);
 		}
 		try {
 			SnakeMatch match = new SnakeMatchSeeker( new Graph( new File(args[0] ) ) ).findMatch();
