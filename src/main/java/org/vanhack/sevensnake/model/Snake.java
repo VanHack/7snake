@@ -23,7 +23,7 @@ public class Snake {
 		return Collections.disjoint(nodes, other.nodes);
 	}
 
-	public int getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
 	
